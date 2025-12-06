@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./Row.css";
 import axios from "../../../utils/axios";
 import movieTrailer from "movie-trailer";
-import Youtube from "react-youtube";
 import YouTube from "react-youtube";
 
 const Row = ({ title, fetchUrl, isLargeRow }) => {
@@ -24,7 +23,6 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
     })();
   }, [fetchUrl]);
 
-
   const handleClick = (movie) => {
     if (trailerUrl) {
       setTrailerUrl("");
@@ -40,15 +38,14 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
         .catch((error) => console.log(error));
     }
   };
-  
-const opts = {
-    height:'300',
-    width: "100%",
-    playerVars:{
-        autoplay: 1,
-    },
 
-}
+  const opts = {
+    height: "300",
+    width: "100%",
+    playerVars: {
+      autoplay: 1,
+    },
+  };
   return (
     <div className="row">
       <h1>{title}</h1>
